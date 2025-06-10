@@ -21,17 +21,34 @@
 <body>
 	
 	<main id="content">
-		<div id ="background">
-	
-			<img src='img/grocery.png' alt ="background-img">
+		<div id="background">
+			<img src="img/grocery.png" alt="background">
 		</div>
+	
+		<div>
+			<button id="oatmilk">
+				<img src="img/milks (1).png" alt="oatmilk Image">
+			</button>
+			<button id="wholemilk">
+				<img src="img/milks (2).png" alt="wholemilk Image">
+			</button>
+		</div>
+	
+		<!-- These are needed for appending output -->
+		<div id="chosen-product"></div>
+		<div id="chosen-milk"></div>
 
 </div>
 <button id = outfit onclick="markTaskAsDone(0)">
 	<img id = outfitImg src="img/outfit.png" alt="Button Image">
 	<img id = sleepReady src="img/sleepready.png" alt="Button Image two" style="width:240px" >
 </button>
-<img id = readyImage src ="img/classready.png"></img>
+
+</div>
+<div class = "next-container">
+	<button id="next" onclick="location.href='../page7/index.html'">End Day</button>
+</div>
+
 
 <audio id="myAudio" preload="auto">
   <source src="song/song.m4a" type="audio/mp4">

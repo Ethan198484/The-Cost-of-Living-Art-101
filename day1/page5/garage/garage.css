@@ -1,18 +1,20 @@
 #background img {
-    display: block;
-    margin: 0 auto;
-    width: 1660px;
+    position: center;
+    width: 1200px;
+
 }
 
-#bike img {
-    width: 500px;
-}
-
-#bike {        
+#bike-img img {
     background-color: transparent;
-    border: none;
     position: absolute;
-    top: 10px;       /* distance from bottom */
-    left: 0px;
-
+    left:200px;
+    top:300px;
+    width:400px;
+    
+    transition: box-shadow 0.3s ease;
 }
+  
+  #bike-img:hover img {
+    box-shadow: 0 0 20px 5px rgba(255, 102, 222, 0.7); /* soft yellow glow */
+    border-radius: 5px;
+  }

@@ -1,14 +1,11 @@
-button {
-    position: fixed;
-    bottom: 500px;      
-    left: 33%;          
-    transform: translateX(-250%); 
-    background-color: transparent;
-    border: none;
-    width: 40px;
+
+
+#background img{
+  position: center;
+  width: 1200px;
+  
+
 }
-
-
 *{
   box-sizing: border-box;
 }
@@ -70,8 +67,9 @@ ul li.checked::before{
 
 
 #background img{
-    position: center;
-    width: 1660px;
+  position: center;
+  width: 1200px;
+
   }
 
   .todo-container {
@@ -82,7 +80,9 @@ ul li.checked::before{
       display:flex;
       flex-direction: column;
       width: 400px;
-  }
+    }
+
+
   .todo-list li{
       
       display: flex; 
@@ -95,22 +95,36 @@ ul li.checked::before{
     background-color: transparent;
     position: absolute;
     border: none;
-    top: 290px;       /* distance from bottom */
-    left: 400px;
-}
+    top: 20px;       /* distance from bottom */
+    left: 280px;
+  }
 
 #oatmilk img {
-    width: 500px
+    width: 460px
 }
 
 #wholemilk {         
     background-color: transparent;
     position: absolute;
     border: none;
-    top: 350px;       /* distance from bottom */
-    left: 1000px;
+    top: 50px;       /* distance from bottom */
+    left: 650px;
 }
 
 #wholemilk img {
     width: 500px
+}
+
+#next {
+  background-color: rgb(218, 28, 136);
+  font-size: 30px;
+  border-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+}
+
+.next-container {
+  position: absolute;
+  top: 700px;
+  left: 500px;
 }

@@ -1,13 +1,13 @@
 function toggleImage() {
     $("#myImage").toggle();
+    saveToggleStatus()
   }
   function toggleImage2() {
     $("#darkness").toggle();
-    document.getElementById("starlight").style.display = "none";
-document.getElementById("heylight").style.display = "none";
   }
   function toggleImage3() {
     $("#starlight").toggle();
+    saveToggleStatus()
   }
 
 //laptop toggle image
@@ -18,6 +18,7 @@ document.getElementById("heylight").style.display = "none";
     $('#laptopImage').click(function() {
         currentIndex = (currentIndex + 1) % images.length;
         $(this).attr('src', images[currentIndex]);
+        saveToggleStatus()
     });
 });
 
@@ -39,18 +40,48 @@ const checkboxes = document.querySelectorAll('input[type="checkbox"]');
     });
 
     // Function to programmatically mark a task as done
-    function markTaskAsDone(id) {
-      // Find the checkbox by matching its data-id
+    function markTaskAsDone(id, outfitVersion) {
+      //  Update checkbox state
       const checkbox = document.querySelector(`input[data-id="${id}"]`);
-
       if (checkbox) {
-        checkbox.checked = true;         // Check it visually
-        saved[id] = true;                // Update saved state
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));  // Save it
-        $('#readyImage').show();
+        checkbox.checked = true;
+        saved[id] = true;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+      }
+    
+      // Hide sleep image
+      $('#sleepReady').hide();
+    
+      // Hide both outfit buttons
+      $('#outfit1').hide();
+      $('#outfit2').hide();
+    
+      //  Show correct ready image
+      if (outfitVersion === 1) {
+        $('#classready1').show();
+      } else if (outfitVersion === 2) {
+        $('#classready2').show();
       }
     }
-    $('#outfit').on('click', function () {
-        markTaskAsDone(0);   // Mark the checkbox as done
-        $(this).hide();      // Hide the button that was clicked
-      });
+
+    $('#outfit1').on('click', function () {
+      markTaskAsDone(0, 1);
+    });
+    $('#outfit2').on('click', function () {
+      markTaskAsDone(0, 2);
+    });
+
+
+    function saveToggleStatus() {
+      const status = {
+        myImage: $("#myImage").is(":visible"),
+        darkness: $("#darkness").is(":visible"),
+        starlight: $("#starlight").is(":visible"),
+        laptopImage: $("#laptopImage").is(":visible")
+      };
+      localStorage.setItem("imageStatus", JSON.stringify(status));
+    }
+
+    function saveOpenOrClosed(){
+      localStorage.setItem('laptopImageIndex', currentIndex);
+    }
