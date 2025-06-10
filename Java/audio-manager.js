@@ -20,10 +20,10 @@ class AudioManager {
         document.body.appendChild(this.audio);
 
         // Resume from saved state
-        this.resumeAudio();
+       /* this.resumeAudio(); */
         
         // Start audio on user interaction
-        this.setupUserInteraction();
+        this.setupUserInteraction(); 
         
         // Save state before leaving page
         this.setupBeforeUnload();
@@ -47,10 +47,11 @@ class AudioManager {
                 // If auto-resume fails, wait for user interaction
                 console.log('Auto-resume failed, waiting for user interaction');
             });
-        }
+        } 
     }
 
-    setupUserInteraction() {
+   
+   setupUserInteraction() {
         const startAudio = () => {
             if (!this.audioStarted) {
                 this.audio.play().then(() => {
@@ -69,13 +70,15 @@ class AudioManager {
                     console.log('Audio failed to resume:', e);
                 });
             }
-        };
+        }; 
 
         // Multiple event listeners for better compatibility
         ['click', 'touchstart', 'keydown'].forEach(event => {
             document.addEventListener(event, startAudio, { once: true });
         });
     }
+        
+        
 
     setupBeforeUnload() {
         window.addEventListener('beforeunload', () => {
@@ -112,7 +115,7 @@ class AudioManager {
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Replace 'your-audio.m4a' with your actual audio file path
-    window.audioManager = new AudioManager('your-audio.m4a');
+    window.audioManager = new AudioManager('song/song.m4a');
     
     // Restore volume if saved
     const savedVolume = localStorage.getItem('bgAudioVolume');

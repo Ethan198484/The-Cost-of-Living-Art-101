@@ -1,7 +1,9 @@
 body{
     background-color: #070207;
+    height: 100vh;
+    margin: 0;
+   
 }
-
 
 
 .todo-container {

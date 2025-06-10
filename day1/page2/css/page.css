@@ -138,6 +138,9 @@ ul li.checked::before{
       height: 100vh;
       object-fit: cover;
       z-index: 4;
+      
+
+
   }
   #starlight {
     position: absolute;

@@ -3,6 +3,8 @@ function toggleImage() {
   }
   function toggleImage2() {
     $("#darkness").toggle();
+    document.getElementById("starlight").style.display = "none";
+document.getElementById("heylight").style.display = "none";
   }
   function toggleImage3() {
     $("#starlight").toggle();
